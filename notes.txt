@@ -1,0 +1,1 @@
+pomysł z sinusem hiperbolicznym super, ale drzewo decyzyjne odstaje w performance
