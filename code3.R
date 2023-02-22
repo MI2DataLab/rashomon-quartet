@@ -115,7 +115,7 @@ explain_models_fi(explainers)
 
 # benchmark for smallest performance difference
 results <- list()
-for (i in 1:1000) {
+for (i in 1:250) {
   print(i)
   data <- generate_data(seed=i)
   results[[i]] <- train_models(data, seed=i, benchmark=TRUE)
