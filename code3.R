@@ -83,6 +83,18 @@ explain_models_pd <- function(explainers) {
     theme(legend.position = "top")
 }
 
+explain_models_ale <- function(explainers) {
+  profiles <- list()
+  for (i in 1:length(explainers)) {
+    profiles[[i]] <- model_profile(explainers[[i]], N=NULL, type="accumulated", span=1e-2)
+  }
+  plot(profiles) + 
+    scale_color_manual(values=DALEX::colors_discrete_drwhy(n=4)[c(2, 1, 3, 4)]) +
+    labs(title="Accumulated local effects", subtitle=NULL, color=NULL) +
+    DALEX::theme_ema() + 
+    theme(legend.position = "top")
+}
+
 explain_models_fi <- function(explainers) {
   explanations <- list()
   for (i in 1:length(explainers)) {
@@ -115,6 +127,9 @@ data <- generate_data(seed=i_best)
 explainers <- train_models(data, seed=i_best)
 explain_models_pd(explainers)
 ggsave("figures/code3_pd.png", width=7, height=3.5)
+
+explain_models_ale(explainers)
+ggsave("figures/code3_ale.png", width=7, height=3.5)
 
 explain_models_fi(explainers)
 ggsave("figures/code3_fi.png", width=7, height=7)
