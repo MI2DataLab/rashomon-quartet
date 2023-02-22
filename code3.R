@@ -34,7 +34,7 @@ train_models <- function(data, seed=2970, benchmark=FALSE) {
   df_test <- data$test
   
   set.seed(seed) 
-  model_dt <- ctree(y~., data = df_train, control = ctree_control(maxdepth = 3))
+  model_dt <- ctree(y~., data = df_train, control = ctree_control(maxdepth = 3, minsplit = 250))
   exp_dt <- DALEX::explain(model_dt, data = df_test[,-1], y = df_test[,1], 
                              verbose = FALSE, label="decision tree")
   mp_dt <- model_performance(exp_dt)
