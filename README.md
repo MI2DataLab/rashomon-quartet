@@ -40,7 +40,7 @@ mp_nn <- model_performance(exp_nn)
 imp_nn <- model_parts(exp_nn, N=NULL, B=1, type = "difference")
 
 # save binary versions just in case
-save(exp_nn, exp_df, exp_rm, exp_lm, file="models.RData")
+save(exp_nn, exp_dt, exp_rf, exp_lm, file="models.RData")
 ```
 
 ## Let's see performance
@@ -49,7 +49,14 @@ save(exp_nn, exp_df, exp_rm, exp_lm, file="models.RData")
 mp_all <- list(lm = mp_lm, dt = mp_dt, nn = mp_nn, rf = mp_rf)
 
 R2   <- sapply(mp_all, function(x) x$measures$r2)
+round(R2, 4)
+#     lm     dt     nn     rf 
+# 0.7290 0.7287 0.7290 0.7287 
+
 rmse <- sapply(mp_all, function(x) x$measures$rmse)
+round(rmse, 4)
+#     lm     dt     nn     rf 
+# 0.3535 0.3537 0.3535 0.3537
 ```
 
 ## Let's see raw models
@@ -61,11 +68,44 @@ model_rf
 plot(model_nn)
 ```
 
+<img width=600 src="figures/rq_plot_dt.png">
+
+```
+-------- LM
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.01268    0.01114  -1.138    0.255    
+x1           0.48481    0.03001  16.157  < 2e-16 ***
+x2           0.14316    0.02966   4.826 1.61e-06 ***
+x3          -0.03113    0.02980  -1.045    0.296    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.352 on 996 degrees of freedom
+Multiple R-squared:  0.7268,	Adjusted R-squared:  0.726 
+F-statistic: 883.4 on 3 and 996 DF,  p-value: < 2.2e-16
+
+-------- RF
+ randomForest(formula = y ~ ., data = train, ntree = 100) 
+               Type of random forest: regression
+                     Number of trees: 100
+No. of variables tried at each split: 1
+
+          Mean of squared residuals: 0.1182976
+                    % Var explained: 73.81
+```
+
+<img width=600 src="figures/rq_plot_nn.png">
+
+
 ## Variable importance
 
 ```
 plot(imp_dt, imp_nn, imp_rf, imp_lm)
 ```
+
+<img width=600 src="figures/rq_plot_vip.png">
+
 
 ## Plot models
 
@@ -77,6 +117,8 @@ pd_nn <- model_profile(exp_nn, N=NULL)
 
 plot(pd_dt, pd_nn, pd_rf, pd_lm)
 ```
+
+<img width=600 src="figures/rq_plot_pd.png">
 
 ## Session info
 
