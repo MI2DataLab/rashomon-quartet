@@ -125,6 +125,9 @@ for (i in 1:250) {
 i_best <- 11 # which.min(results) # 11
 data <- generate_data(seed=i_best)
 explainers <- train_models(data, seed=i_best)
+
+# saveRDS(explainers, file = "metadata/code3_explainers.rds")
+
 explain_models_pd(explainers)
 ggsave("figures/code3_pd.png", width=7, height=3.5)
 
