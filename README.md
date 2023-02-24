@@ -1,5 +1,7 @@
 # Rashomon's quartet
 
+![figures/rashomon4.png](figures/rashomon4.png)
+
 ## Read data
 
 ```
