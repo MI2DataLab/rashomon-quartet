@@ -1,4 +1,4 @@
-# Rashomon's quartet
+# Performance is not enough: the story of Rashomon's quartet
 
 ![figures/rashomon4.png](figures/rashomon4.png)
 
