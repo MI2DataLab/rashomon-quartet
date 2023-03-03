@@ -1,5 +1,9 @@
 # Performance is not enough: the story of Rashomon's quartet
 
+This repository contains the code to reproduce the data, models, and visualizations described in the paper:
+
+P. Biecek, H. Baniecki, M. Krzyziński. *Performance is not enough: the story of Rashomon’s quartet*. [arXiv:2302.13356](https://arxiv.org/abs/2302.13356)
+
 ![figures/rashomon4.png](figures/rashomon4.png)
 
 ## Read data
