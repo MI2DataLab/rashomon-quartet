@@ -17,6 +17,7 @@ test  <- read.table("rq_test.csv", sep=";", header=TRUE)
 
 ```
 set.seed(1568) 
+library(DALEX)
 
 library(partykit)
 model_dt <- ctree(y~., data = train, control = ctree_control(maxdepth = 3, minsplit = 250))
