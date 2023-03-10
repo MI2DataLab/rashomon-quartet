@@ -8,14 +8,14 @@ P. Biecek, H. Baniecki, M. Krzyziński. *Performance is not enough: the story of
 
 ## Read data
 
-```
+```r
 train <- read.table("rq_train.csv", sep=";", header=TRUE)
 test  <- read.table("rq_test.csv", sep=";", header=TRUE)
 ```
 
 ## Train models
 
-```
+```r
 set.seed(1568) 
 library(DALEX)
 
@@ -52,7 +52,7 @@ save(exp_nn, exp_dt, exp_rf, exp_lm, file="models.RData")
 
 ## Let's see performance
 
-```
+```r
 mp_all <- list(lm = mp_lm, dt = mp_dt, nn = mp_nn, rf = mp_rf)
 
 R2   <- sapply(mp_all, function(x) x$measures$r2)
@@ -68,7 +68,7 @@ round(rmse, 4)
 
 ## Let's see raw models
 
-```
+```r
 plot(model_dt)
 summary(model_lm)
 model_rf
@@ -107,7 +107,7 @@ No. of variables tried at each split: 1
 
 ## Variable importance
 
-```
+```r
 plot(imp_dt, imp_nn, imp_rf, imp_lm)
 ```
 
@@ -116,7 +116,7 @@ plot(imp_dt, imp_nn, imp_rf, imp_lm)
 
 ## Plot models
 
-```
+```r
 pd_dt <- model_profile(exp_dt, N=NULL)
 pd_rf <- model_profile(exp_rf, N=NULL)
 pd_lm <- model_profile(exp_lm, N=NULL)
