@@ -24,27 +24,23 @@ model_dt <- ctree(y~., data = train, control = ctree_control(maxdepth = 3, minsp
 exp_dt <- DALEX::explain(model_dt, data = test[,-1], y = test[,1], 
                          verbose = FALSE, label="decision tree")
 mp_dt <- model_performance(exp_dt)
-imp_dt <- model_parts(exp_dt, N=NULL, B=1, type = "difference")
 
 model_lm <- lm(y~., data = train)
 exp_lm <- DALEX::explain(model_lm, data = test[,-1], y = test[,1], 
                          verbose = FALSE, label="linear regression")
 mp_lm <- model_performance(exp_lm)
-imp_lm <- model_parts(exp_lm, N=NULL, B=1, type = "difference")
 
 library(randomForest)
 model_rf <- randomForest(y~., data = train, ntree = 100)
 exp_rf <- DALEX::explain(model_rf, data = test[,-1], y = test[,1], 
                          verbose = FALSE, label="random forest")
 mp_rf <- model_performance(exp_rf)
-imp_rf <- model_parts(exp_rf, N=NULL, B=1, type = "difference")
 
 library(neuralnet)
 model_nn <- neuralnet(y~., data = train, hidden=c(8, 4), threshold=0.05)
 exp_nn <- DALEX::explain(model_nn, data = test[,-1], y = test[,1], 
                         verbose = FALSE, label="neural network")
 mp_nn <- model_performance(exp_nn)
-imp_nn <- model_parts(exp_nn, N=NULL, B=1, type = "difference")
 
 # save binary versions just in case
 save(exp_nn, exp_dt, exp_rf, exp_lm, file="models.RData")
@@ -108,6 +104,11 @@ No. of variables tried at each split: 1
 ## Variable importance
 
 ```r
+imp_dt <- model_parts(exp_dt, N=NULL, B=1, type = "difference")
+imp_lm <- model_parts(exp_lm, N=NULL, B=1, type = "difference")
+imp_rf <- model_parts(exp_rf, N=NULL, B=1, type = "difference")
+imp_nn <- model_parts(exp_nn, N=NULL, B=1, type = "difference")
+
 plot(imp_dt, imp_nn, imp_rf, imp_lm)
 ```
 
@@ -126,6 +127,21 @@ plot(pd_dt, pd_nn, pd_rf, pd_lm)
 ```
 
 <img width=600 src="figures/rq_plot_pd.png">
+
+## Plot data distribution
+
+```r
+library("GGally")
+both <- rbind(data.frame(train, label="train"),
+              data.frame(test, label="test"))
+ggpairs(both, aes(color=label),
+        lower = list(continuous = wrap("points", alpha=0.2, size=1), 
+                     combo = wrap("facethist", bins=25)),
+        diag = list(continuous = wrap("densityDiag", alpha=0.5, bw="SJ"), 
+                    discrete = "barDiag"),
+        upper = list(continuous = wrap("cor", stars=FALSE))) 
+```
+
 
 ## Session info
 
