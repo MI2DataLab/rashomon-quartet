@@ -1,5 +1,5 @@
 # Performance is not enough: the story of Rashomon's quartet
-# P. Biecek, H. Baniecki, M. Krzyziński. *Performance is not enough: the story of Rashomon’s quartet*. [arXiv:2302.13356](https://arxiv.org/abs/2302.13356)
+# P. Biecek, H. Baniecki, M. Krzyziński, D. Cook. *Performance is not enough: the story of Rashomon’s quartet*. [arXiv:2302.13356v2](https://arxiv.org/abs/2302.13356v2)
 
 ## Read data
 train <- read.table("rq_train.csv", sep=";", header=TRUE)
