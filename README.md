@@ -143,6 +143,11 @@ ggpairs(both, aes(color=label),
         upper = list(continuous = wrap("cor", stars=FALSE))) 
 ```
 
+## Analysis of model residuals
+
+The parallel coordinate plot depicts ranges for residuals for different models, one range per observation ordered along the mean value. The second panel shows between model averages and standard deviations for residuals, one point per observation. Following panels show the dendrogram and PCA for residuals.
+
+<img width=600 src="residuals.png">
 
 ## Session info
 
