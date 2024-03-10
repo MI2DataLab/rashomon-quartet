@@ -11,17 +11,18 @@ See also an R file [replicate.r](replicate.r)
 
 ## Graphical overview of Rashomon's quartet
 
-![pdp profiles](figures/Rplot.png)
+<center><img src="figures/Rplot.png" width="600"></center>
 
 ![1d pdp profile](figures/animated_plot.gif)
 
-![2d pdp profiles for x1](figures/animated_plot_2d_x1.gif)
+<center><img src="figures/animated_plot_2d_x1.gif" width="500"></center>
 
-![2d pdp profiles for x3](figures/animated_plot_2d_x3.gif)
+<center><img src="figures/animated_plot_2d_x3.gif" width="500"></center>
+
 
 ## Graphical overview of Rashomon's couple
 
-![pdp profiles](figures/rashomon_couple.png)
+<center><img src="figures/rashomon_couple.png" width="600"></center>
 
 ## Read data
 
