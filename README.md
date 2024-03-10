@@ -9,7 +9,15 @@ P. Biecek, H. Baniecki, M. Krzyziński, D. Cook. *Performance is not enough: the
 
 See also an R file [replicate.r](replicate.r)
 
-![figures/rashomon4.png](figures/rashomon4.png)
+## Graphical overview
+
+![pdp profiles](figures/Rplot.png)
+
+![1d pdp profile](figures/animated_plot.gif)
+
+![2d pdp profiles for x1](figures/animated_plot_2d_x1.gif)
+
+![2d pdp profiles for x3](figures/animated_plot_2d_x3.gif)
 
 ## Read data
 
@@ -151,6 +159,11 @@ ggpairs(both, aes(color=label),
 The parallel coordinate plot depicts ranges for residuals for different models, one range per observation ordered along the mean value. The second panel shows between model averages and standard deviations for residuals, one point per observation. Following panels show the dendrogram and PCA for residuals.
 
 <img width=600 src="residuals.png">
+
+## Graphical summary
+
+![figures/rashomon4.png](figures/rashomon4.png)
+
 
 ## Session info
 
