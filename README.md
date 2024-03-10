@@ -9,7 +9,7 @@ P. Biecek, H. Baniecki, M. Krzyziński, D. Cook. *Performance is not enough: the
 
 See also an R file [replicate.r](replicate.r)
 
-## Graphical overview
+## Graphical overview of Rashomon's quartet
 
 ![pdp profiles](figures/Rplot.png)
 
@@ -18,6 +18,10 @@ See also an R file [replicate.r](replicate.r)
 ![2d pdp profiles for x1](figures/animated_plot_2d_x1.gif)
 
 ![2d pdp profiles for x3](figures/animated_plot_2d_x3.gif)
+
+## Graphical overview of Rashomon's couple
+
+![pdp profiles](figures/rashomon_couple.png)
 
 ## Read data
 
