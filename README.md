@@ -11,16 +11,17 @@ See also an R file [replicate.r](replicate.r)
 
 ## Graphical overview of Rashomon's quartet
 
-<center><img src="figures/animated_plot.gif" width="500"></center>
+<center><img src="figures/animated_plot.gif" width=600"></center>
 
-<center><img src="figures/animated_plot_2d_x1.gif" width="500"></center>
+<center><img src="figures/animated_plot_2d_x1.gif" width="600"></center>
 
-<center><img src="figures/animated_plot_2d_x3.gif" width="500"></center>
+<center><img src="figures/animated_plot_2d_x3.gif" width="600"></center>
 
 
 ## Graphical overview of Rashomon's couple
 
 <center><img src="figures/rashomon_couple.png" width="500"></center>
+
 
 ## Read data
 
